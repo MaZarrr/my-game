@@ -116,7 +116,7 @@ switch(action.type) {
         }
 
     case PlayerActionTypes.PLAYER_ATTACK:
-        return paramersUpdate(state, "parametrsPower", "attackParametr", action.payload, "attack", "power")
+        return paramersUpdate(state, "parametrsPower", "attackParametr", action.payload, "attack", "power", "life")
     
     case PlayerActionTypes.PLAYER_STELS:
         console.log(action.payload);
