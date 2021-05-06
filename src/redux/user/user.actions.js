@@ -1,10 +1,5 @@
 import { PlayerActionTypes } from './user.types';
 
-// export const setCurrentPlayer = player => (dispatch) => ({
-// 	type: PlayerActionTypes.CURRENT_PLAYER,
-// 	payload: player
-// })
-
 export const setCurrentPlayer = player => ({
 	type: PlayerActionTypes.CURRENT_PLAYER,
 	payload: player
