@@ -6,6 +6,43 @@ import { setCurrentPlayer, editNamePlayer, setPower, setCharisma, setAgility, se
 
 import Skills from "./components/Skills"
 
+type Skill = string | number
+
+// type Players = {
+//  readonly id: number,
+//   name?: string,
+// }
+
+const playerSkill: Array<{id: number, name: string}> = [
+  {
+    id: 1,
+    name: "igor"
+  },
+  {
+    id: 2,
+    name: "Slave"
+  },
+  {
+    id: 3,
+    name: "Petr"
+  }
+]
+
+// const playerSkill: Array<Players> = [
+//   {
+//     id: 1,
+//     name: "igor"
+//   },
+//   {
+//     id: 2,
+//     name: "Slave"
+//   },
+//   {
+//     id: 3,
+//     name: "Petr"
+//   }
+// ]
+
 interface IPlayerProps {
   playerName: string;
   setNameCurrentUser: Function;
@@ -16,17 +53,40 @@ interface IPlayerProps {
   setRegisterStart: Function;
   setCharisma: Function;
   playerLevel: string;
-  playerLife: number;
-  playerDodging: number;
-  playerEnergy: number;
-  power: number;
-  agility: number;
-  intellect: number;
-  charisma: number;
+  playerLife: Skill;
+  playerDodging: Skill;
+  playerEnergy: Skill;
+  power: Skill;
+  agility: Skill;
+  intellect: Skill;
+  charisma: Skill;
   editName: boolean;
   registerPlayer: boolean;
   basicParametr: object;
 }
+
+
+// interface IPlayerProps {
+//   playerName: string;
+//   setNameCurrentUser: Function;
+//   setEditNamePlayer: Function;
+//   setPower: Function;
+//   setAgility: Function;
+//   setIntellect: Function;
+//   setRegisterStart: Function;
+//   setCharisma: Function;
+//   playerLevel: string;
+//   playerLife: number;
+//   playerDodging: number;
+//   playerEnergy: number;
+//   power: number;
+//   agility: number;
+//   intellect: number;
+//   charisma: number;
+//   editName: boolean;
+//   registerPlayer: boolean;
+//   basicParametr: object;
+// }
 
 function App({ playerName, playerLevel, playerLife, playerDodging, playerEnergy, editName, registerPlayer,
   setNameCurrentUser, setEditNamePlayer, setPower, setAgility, setIntellect, setCharisma, setRegisterStart 
@@ -47,13 +107,27 @@ const handleSubmit = (e: any) => {
   }
 }
 
-const editNamePlayer = () => {
-  setEditNamePlayer(true)
+const func = <T extends object, R extends keyof T>(obj: T, key: R) => {
+  return obj[key]
 }
 
+
+const editNamePlayer = (): void => {
+  setEditNamePlayer(true)
+}
+const players = playerSkill.filter(el => el.id > 1)
+
   return (
+    <>
+    <div className="section"> 
+    <a href="#" className="menu-btn">
+      <span></span>
+    </a>
+  </div>
     <div className="App">
         
+     
+
         <Skills registerPlayer={registerPlayer} />
 
         <div className="person_container">
@@ -86,7 +160,8 @@ const editNamePlayer = () => {
         </div>
 
       </div>
-    // </div>
+    {/* // </div> */}
+    </>
   );
 }
 
